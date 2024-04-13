@@ -242,6 +242,7 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numtostr/comment.nvim', opts = {} },
   { 'pmizio/typescript-tools.nvim', dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' }, opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
   {
     'rmagatti/auto-session',
     opts = {},
@@ -621,7 +622,7 @@ require('lazy').setup({
           root_dir = util.root_pattern('angular.json', 'project.json'),
         },
         jsonls = {},
-
+        -- clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
