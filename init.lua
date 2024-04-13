@@ -91,8 +91,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = false
 
+-- Enable relative number
+vim.wo.relativenumber = true
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -253,8 +255,8 @@ require('lazy').setup({
     'NvChad/nvim-colorizer.lua',
     opts = {},
   },
-  -- here is a more advanced example where we pass configuration
-  -- options to `gitsigns.nvim`. this is equivalent to the following lua:
+  -- Here is a more advanced example where we pass configuration
+  -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
   --
   -- see `:help gitsigns` to understand what the configuration keys do
@@ -342,6 +344,7 @@ require('lazy').setup({
       -- Useful for getting pretty icons, but requires a Nerd Font.
       {
         'nvim-tree/nvim-web-devicons',
+        cond = vim.g.have_nerd_font,
         config = function()
           require('nvim-web-devicons').setup {}
         end,
@@ -610,10 +613,16 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        intelephense = {},
         gopls = {},
         tailwindcss = {},
         cssls = {},
+        angularls = {
+          root_dir = util.root_pattern('angular.json', 'project.json'),
+        },
+        jsonls = {},
+
+        -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -642,7 +651,7 @@ require('lazy').setup({
       }
 
       -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
+	      --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
       --    :Mason
       --
