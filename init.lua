@@ -229,7 +229,11 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -613,15 +617,25 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local util = require 'lspconfig.util'
+
       local servers = {
         intelephense = {},
+<<<<<<< Updated upstream
         gopls = {},
         tailwindcss = {},
         cssls = {},
+=======
+>>>>>>> Stashed changes
         angularls = {
           root_dir = util.root_pattern('angular.json', 'project.json'),
         },
         jsonls = {},
+<<<<<<< Updated upstream
+=======
+        cssls = {},
+        tailwindcss = {},
+>>>>>>> Stashed changes
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -682,6 +696,7 @@ require('lazy').setup({
       }
     end,
   },
+<<<<<<< Updated upstream
   { -- Autoformat
     'stevearc/conform.nvim',
     opts = {
@@ -722,6 +737,11 @@ require('lazy').setup({
       },
     },
   },
+=======
+
+  -- styling
+  { 'prettier/vim-prettier' },
+>>>>>>> Stashed changes
   {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
