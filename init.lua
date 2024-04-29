@@ -621,21 +621,13 @@ require('lazy').setup({
 
       local servers = {
         intelephense = {},
-<<<<<<< Updated upstream
         gopls = {},
         tailwindcss = {},
         cssls = {},
-=======
->>>>>>> Stashed changes
         angularls = {
           root_dir = util.root_pattern('angular.json', 'project.json'),
         },
         jsonls = {},
-<<<<<<< Updated upstream
-=======
-        cssls = {},
-        tailwindcss = {},
->>>>>>> Stashed changes
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -696,7 +688,6 @@ require('lazy').setup({
       }
     end,
   },
-<<<<<<< Updated upstream
   { -- Autoformat
     'stevearc/conform.nvim',
     opts = {
@@ -737,11 +728,8 @@ require('lazy').setup({
       },
     },
   },
-=======
-
   -- styling
   { 'prettier/vim-prettier' },
->>>>>>> Stashed changes
   {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
