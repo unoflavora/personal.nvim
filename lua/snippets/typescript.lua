@@ -3,8 +3,14 @@ local s = ls.snippet
 local t = ls.text_node
 
 return {
+  s('pipe.untilDestroyandTake1', {
+    t { '.pipe(takeUntil(this.onDestroy$), take(1))' },
+  }),
   s('import.form-popup-module', {
     t {
+      'CommonModule',
+      'MatButtonModule',
+      'MatIconModule',
       'MatFormFieldModule,',
       'MatToolbar,',
       'MatDialogModule,',
